@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>评估报告平台</title>
+<link rel="stylesheet" type="text/css" href="ppbg/css/index.css" >
+<style type="text/css" media="screen">
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td,p { margin:0;padding:0; list-style: none;}
+img{ border: 0;}
+a{text-decoration: none; }
+body.ppbg{ background: #f5f7fa; font-size: 13px; }
+.ppbgtop{ height: 120px; min-width: 1348px;}
+.ppbgtop .top{ height: 50px; background: #fff; }
+.ppbgtop .top img.logo{ margin-left: 85px;margin-top: 5px;}
+.ppbgtop .top .zw{ margin-left: 33px; color: #9ea3ff;}
+.ppbgtop .top .yw{ margin-left: 12px; margin-right: 230px;_margin-right: 110px;color: #9ea3ff; }
+.ppbgtop .top .sp,.ppbgtop .top .sp a{ margin-right: 30px;color: #4c99db;  }
+.ppbgtop .top .sh{ margin-right: 5px; }
+.ppbgtop .top .mc{ color: #4c99db; }
+.ppbgtop .top .fg{ margin-right: 22px; margin-left: 22px; color: #709bdc; }
+.ppbgtop .top .tc,.ppbgtop .top .tc a{ margin-right: 24px; color: #ff0808; }
+.ppbgtop .top img.lg{ margin-top: 5px; }
+.ppbgtop ul.nav{ height:35px;background: #4c99db; padding-left: 100px;position: relative;}
+.ppbgtop ul.nav li{ float: left;padding:10px 20px; }
+.ppbgtop ul.nav li.hover{ background: #176ab1; }
+.ppbgtop ul.nav li a.yj{ color:#fff;}
+.ppbgtop ul.nav li ul.erbox{ position: absolute;left: 0;top:35px;  height: 35px; background: #fff; width: 100%;}
+.ppbgtop ul.nav li ul.erbox li{ padding-left: 18px; padding-right: 80px; }
+.ppbgtop ul.nav li a.rj{ color:#636464;}
+.ppbgmain{ width: 1008px; margin:0 auto 128px auto; background: #fff; border:1px solid #e8edf1; border-radius: 5px; padding-top: 16px; font-size:14px; }
+.ppbglc{width: 1008px;margin:auto;}
+.ppbgmain .title{ border-left: 3px solid #196ab1; padding-left: 10px; padding-top: 2px; padding-bottom: 2px;float: left; margin-top: 3px; }
+.ppbgmain .tright{ background: url(./ppbg/img/tright.png) no-repeat 100% 50%; height: 35px; line-height: 35px; text-align: right; padding-right: 5px; float: right; width: 180px; }
+.ppbgmain .tright span{ color: #C30D23; }
+.ppbgmain a.xzbox{display:block;width: 295px; height: 80px; line-height: 80px; border:1px dashed #e7e7e7; border-radius: 5px; margin: auto; text-align: center; font-size: 16px; cursor: pointer; }
+.ppbgmain a.xzbox:hover{ border:1px solid #c5d9eb; }
+.ppbgmain a.xzbox img{ position: relative; top: 10px; left: -10px; }
+.ppbgmain a.qdbox{display:block;width: 195px; height: 50px; line-height: 50px;text-align: center;font-size: 16px; cursor: pointer;color: #fff; background:#b4b4b5; margin: auto; position: relative; }
+.ppbgmain a.qdboxh{background:#196ab1;}
+.ppbgmain a.qdbox:hover{ background:#196ab1; }
+.ppbgmain a.qdbox span{ position: absolute; top: -40px; left:20px;color:#C30D23; font-size: 14px; }
+.ppbgmain .tform .tlistl{ width: 370px; padding-right: 15px; float: left; line-height: 40px; text-align: right;}
+.ppbgmain .tform .tlistc{ width: 270px; float: left;line-height: 40px; }
+.ppbgmain .tform .tlistc input{ width: 96%; border:1px solid #c4c1c0; border-radius: 5px; height: 40px; line-height: 40px; outline: none; padding-left: 4%; }
+.ppbgmain .tform .tlistr{ width: 65px; float: left; padding-left: 95px; font-size: 12px; padding-top: 1px; }
+.ppbgmain .tform .tlistrr{ width: 175px; float: left;font-size: 12px;color: #999; padding-top: 1px;}
+.ppbgfoot{border-top:2px solid #4b99db; padding-top: 16px; height: 30px; background:#fff; text-align: center; font-size: 11px;}
+</style>
+<script src="./ppbg/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(document).ready(function(){
+	$(".imgwx").click(function(){
+		$(this).css('display','none');
+		$(this).next(".yhkyz").attr('checked','true');
+		$(this).next(".yypgbg").attr('checked','true');
+		$(this).siblings(".imgwx").css('display','inline');
+		$(".qdbox").attr("class","qdbox qdboxh");
+		var yhkyz =$('input[name="yhkyz"]:checked ').val();
+		var yypgbg =$('input[name="yypgbg"]:checked ').val();
+		if(yypgbg ==0 & yhkyz ==0 ){
+			$(".qdbox").attr("class","qdbox");
+		}
+	});
+	$(".qdbox").click(function(){
+		var yhkyz =$('input[name="yhkyz"]:checked ').val();
+		var yypgbg =$('input[name="yypgbg"]:checked ').val();
+		if(yypgbg ==0 & yhkyz ==0 ){
+			$(this).find("span").css('display','block');
+		}else{
+			$("#ppbgmain1").css('display','none');
+			$("#ppbglc").css('display','block');
+			$("#ppbgmain2").css('display','block');
+		}
+	});
+});
+</script>
+</head>
+<body class="ppbg">
+	<div class="ppbgtop">
+		<div class="top">
+			<table>
+				<tr>
+					<td><img src="./ppbg/img/logo.png" class="logo"></td>
+					<td>
+						<span class="zw">中文</span>
+						<span class="yw">English</span>
+						<span class="sp"><a href="#">操作视频</a></span>
+						<span class="sh">商户名称：</span>
+						<span class="mc">陈涛（增值业务）测试</span>
+						<span class="fg">|</span>
+						<span class="dl">登陆名称：</span>
+						<span class="mc">opersccs</span>
+						<span class="fg">|</span>
+						<span class="tc"><a href="#">退出</a></span>
+					</td>
+					<td><img src="./ppbg/img/lg.png" class="lg"></td>
+				</tr>
+			</table>
+		</div>
+		<ul class="nav">
+			<li><a href="#" class="yj">商户查询</a></li>
+			<li><a href="#" class="yj">操作员管理</a></li>
+			<li><a href="#" class="yj">应用管理</a></li>
+			<li class="hover">
+				<a href="#" class="yj">增值服务管理</a>
+				<ul class="erbox">
+					<li><a href="#" class="rj">订单查询</a></li>
+					<li><a href="#" class="rj">交易统计</a></li>
+					<li><a href="#" class="rj">计费统计</a></li>
+					<li><a href="#" class="rj">账户查询</a></li>
+					<li><a href="#" class="rj">信用评估报告</a></li>
+					<li><a href="#" class="rj">历史查询</a></li>
+				</ul>
+			</li>
+			<li style="clear: both;"></li>
+		</ul>
+	</div>
+	<div class="ppbgmain" id="ppbgmain1" style="margin-top: 48px;">
+		<div class="title">请勾选需要的历史报告进行下载</div>
+		<div class="tright">商户号：<span>739893003342</span></div>
+		<div style="clear: both;height: 68px;"></div>
+		<a class="xzbox">
+			<img src="./ppbg/img/wxz.png" class="imgwx" style="display: none;">
+			<input name="yhkyz" type="radio" class="yhkyz" value="0" style="display: none;" checked />
+			<img src="./ppbg/img/txz.png" class="imgwx">
+			<input name="yhkyz" type="radio" class="yhkyz" value="1" style="display: none;" />
+			<span>银行卡验证</span>
+		</a>
+		<div style="height: 18px;"></div>
+		<a class="xzbox">
+			<img src="./ppbg/img/wxz.png" class="imgwx" style="display: none;">
+			<input name="yypgbg" type="radio" class="yypgbg" value="0" style="display: none;" checked />
+			<img src="./ppbg/img/txz.png" class="imgwx">
+			<input name="yypgbg" type="radio" class="yypgbg" value="1" style="display: none;" />
+			<span>信用评估报告</span>
+		</a>
+		<div style="height: 56px;"></div>
+		<a class="qdbox">
+			确 定
+			<span style="display: none;">请选择具体业务！可多选</span>
+		</a>
+		<div style="height: 46px;"></div>
+	</div>
+	<div class="ppbglc" id="ppbglc" style="display: none;">
+		<div style="height: 36px;"></div>
+		<img src="./ppbg/img/liucheng.png">
+		<div style="height: 30px;"></div>
+	</div>
+	<div class="ppbgmain" id="ppbgmain2" style="display: none;">
+		<div class="title">请填写您要查询的持卡人信息</div>
+		<div class="tright">商户号：<span>739893003342</span></div>
+		<div style="clear: both;height: 50px;"></div>
+		<div class="tform">
+			<div class="tlistl">姓名</div>
+			<div class="tlistc"><input type="text" name="" placeholder="请输入姓名"></div>
+			<div class="tlistr">注意事项：</div>
+			<div class="tlistrr">信息验证是为了确保持卡人信息的准确性。请联系持卡人，根据实际情况认真填写。</div>
+		</div>
+		<div style="clear: both;height: 15px;"></div>
+		<div class="tform">
+			<div class="tlistl">证件类型</div>
+			<div class="tlistc"><input type="text" name="" value="身份证"></div>
+		</div>
+		<div style="clear: both;height: 25px;"></div>
+		<div class="tform">
+			<div class="tlistl">证件号</div>
+			<div class="tlistc"><input type="text" name="" placeholder="请输入证件号"></div>
+		</div>
+		<div style="clear: both;height: 25px;"></div>
+		<div class="tform">
+			<div class="tlistl">卡号</div>
+			<div class="tlistc"><input type="text" name="" placeholder="请输入卡号"></div>
+		</div>
+		<div style="clear: both;height: 25px;"></div>
+		<div class="tform">
+			<div class="tlistl">手机号</div>
+			<div class="tlistc"><input type="text" name="" placeholder="请输入手机号"></div>
+		</div>
+		<div style="clear: both;height: 56px;"></div>
+		<a class="qdbox qdboxh">
+			验 证
+		</a>
+		<div style="height: 46px;"></div>
+	</div>
+	<div class="ppbgfoot" style="">
+		Tel:+86 (0)27 95534-6 | <a href="http://www.chinapay.com">http://www.chinapay.com</a> | <a href="mailto:cp_operation@chinapay.com">E-mail:cp_operation@chinapay.com</a><br>
+		ChinaPay Merchant Console | Copyright ©2002-2018 ChinaPay e-payment service Co.ltd
+	</div>
+</body>
+</html>
